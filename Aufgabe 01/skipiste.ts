@@ -62,6 +62,20 @@ function init(): void {
     crc2.fillStyle = "brown"; 
     crc2.fill();
     
+    /*Wolke*/
+    crc2.beginPath();
+    crc2.arc(430, 110, 15, 0, 2 * Math.PI);
+    crc2.arc(390, 110, 15, 0, 2 * Math.PI);
+    crc2.arc(410, 105, 18, 0, 2 * Math.PI);
+    crc2.fillStyle = "white";
+    crc2.fill();
+    crc2.beginPath();
+    crc2.arc(940, 110, 15, 0, 2 * Math.PI);
+    crc2.arc(900, 110, 15, 0, 2 * Math.PI);
+    crc2.arc(920, 105, 18, 0, 2 * Math.PI);
+    crc2.fillStyle = "white";
+    crc2.fill();
+    
     
 
     /*Berge Links*/
