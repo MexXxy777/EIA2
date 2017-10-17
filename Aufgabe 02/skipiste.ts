@@ -6,7 +6,7 @@ Datum: (22.10.2017)
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 
-
+namespace aufgabe2{
 window.addEventListener("load", init);
 
 function init(): void {
@@ -217,4 +217,4 @@ function init(): void {
     
     
     
-}
+}}
