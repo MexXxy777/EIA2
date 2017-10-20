@@ -8,10 +8,11 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var aufgabe2;
 (function (aufgabe2) {
     window.addEventListener("load", init);
+    let crc2;
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
-        let crc2 = canvas.getContext("2d");
+        crc2 = canvas.getContext("2d");
         console.log(crc2);
         crc2.fillStyle = "#b2dfee";
         crc2.fillRect(0, 0, 1000, 600);
@@ -23,6 +24,40 @@ var aufgabe2;
         crc2.closePath();
         crc2.stroke();
         crc2.fillStyle = "#ffffff";
+        crc2.fill();
+        /*B�ume*/
+        crc2.fillStyle = "brown";
+        crc2.fillRect(730, 580, 10, 20);
+        crc2.beginPath();
+        crc2.moveTo(735, 500);
+        crc2.lineTo(710, 560);
+        crc2.lineTo(760, 560);
+        crc2.closePath();
+        crc2.fillStyle = "darkgreen";
+        crc2.fill();
+        crc2.beginPath();
+        crc2.moveTo(735, 530);
+        crc2.lineTo(710, 580);
+        crc2.lineTo(760, 580);
+        crc2.closePath();
+        crc2.fillStyle = "#darkgreen";
+        crc2.fill();
+        crc2.fillStyle = "brown";
+        crc2.fillRect(820, 550, 10, 20);
+        crc2.beginPath();
+        crc2.moveTo(825, 470);
+        crc2.lineTo(850, 530);
+        crc2.lineTo(800, 530);
+        crc2.closePath();
+        crc2.closePath();
+        crc2.fillStyle = "darkgreen";
+        crc2.fill();
+        crc2.beginPath();
+        crc2.moveTo(825, 500);
+        crc2.lineTo(850, 550);
+        crc2.lineTo(800, 550);
+        crc2.closePath();
+        crc2.fillStyle = "#darkgreen";
         crc2.fill();
         /*Lift-Linie*/
         crc2.beginPath();
@@ -49,20 +84,6 @@ var aufgabe2;
         crc2.strokeRect(500, 530, 50, 30);
         crc2.fillStyle = "#b2dfee";
         crc2.fillRect(505, 535, 40, 12);
-        /*H�tte*/
-        crc2.fillStyle = "darkred";
-        crc2.fillRect(170, 550, 60, 40);
-        crc2.strokeRect(95, 380, 50, 30);
-        crc2.fillStyle = "#b2dfee";
-        crc2.fillRect(180, 560, 10, 10);
-        crc2.fillRect(210, 560, 10, 10);
-        crc2.beginPath();
-        crc2.moveTo(160, 550);
-        crc2.lineTo(200, 500);
-        crc2.lineTo(240, 550);
-        crc2.closePath();
-        crc2.fillStyle = "brown";
-        crc2.fill();
         /*Wolke*/
         crc2.beginPath();
         crc2.arc(430, 110, 15, 0, 2 * Math.PI);
@@ -138,62 +159,44 @@ var aufgabe2;
         crc2.closePath();
         crc2.fillStyle = "#ffffff";
         crc2.fill();
-        /*B�ume*/
+        for (let i = 0; i < 10; i++) {
+            let x = 50 + Math.random() * 300;
+            let y = 400 + Math.random() * 100;
+            drawTree(x, y, "darkgreen");
+        }
+        /*H�tte*/
+        crc2.fillStyle = "darkred";
+        crc2.fillRect(170, 550, 60, 40);
+        crc2.strokeRect(95, 380, 50, 30);
+        crc2.fillStyle = "#b2dfee";
+        crc2.fillRect(180, 560, 10, 10);
+        crc2.fillRect(210, 560, 10, 10);
+        crc2.beginPath();
+        crc2.moveTo(160, 550);
+        crc2.lineTo(200, 500);
+        crc2.lineTo(240, 550);
+        crc2.closePath();
         crc2.fillStyle = "brown";
-        crc2.fillRect(40, 560, 10, 20);
-        crc2.beginPath();
-        crc2.moveTo(45, 480);
-        crc2.lineTo(70, 540);
-        crc2.lineTo(20, 540);
-        crc2.closePath();
-        crc2.fillStyle = "darkgreen";
         crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(45, 510);
-        crc2.lineTo(70, 560);
-        crc2.lineTo(20, 560);
-        crc2.closePath();
-        crc2.fillStyle = "#darkgreen";
-        crc2.fill();
+    }
+    function drawTree(_x, _y, _color) {
         crc2.fillStyle = "brown";
-        crc2.fillRect(80, 580, 10, 20);
+        crc2.fillRect(_x - 5, _y + 90, 10, 20);
         crc2.beginPath();
-        crc2.moveTo(85, 500);
-        crc2.lineTo(110, 560);
-        crc2.lineTo(60, 560);
+        crc2.beginPath();
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x + 25, _y + 60);
+        crc2.lineTo(_x - 25, _y + 60);
         crc2.closePath();
-        crc2.fillStyle = "darkgreen";
+        crc2.fillStyle = _color;
         crc2.fill();
         crc2.beginPath();
-        crc2.moveTo(85, 530);
-        crc2.lineTo(110, 580);
-        crc2.lineTo(60, 580);
+        crc2.moveTo(_x, _y + 30);
+        crc2.lineTo(_x + 25, _y + 90);
+        crc2.lineTo(_x - 25, _y + 90);
         crc2.closePath();
-        crc2.fillStyle = "#darkgreen";
+        crc2.fillStyle = _color;
         crc2.fill();
-        crc2.fillStyle = "brown";
-        crc2.fillRect(120, 550, 10, 20);
-        crc2.beginPath();
-        crc2.moveTo(125, 470);
-        crc2.lineTo(150, 530);
-        crc2.lineTo(100, 530);
-        crc2.closePath();
-        crc2.closePath();
-        crc2.fillStyle = "darkgreen";
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(125, 500);
-        crc2.lineTo(150, 550);
-        crc2.lineTo(100, 550);
-        crc2.closePath();
-        crc2.fillStyle = "#darkgreen";
-        crc2.fill();
-        /*
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.bezierCurveTo(20,100,200,100,300,20)
-        crc2.stroke();
-        */
     }
 })(aufgabe2 || (aufgabe2 = {}));
 //# sourceMappingURL=skipiste.js.map
