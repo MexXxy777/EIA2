@@ -164,6 +164,11 @@ var aufgabe2;
             let y = 400 + Math.random() * 100;
             drawTree(x, y, "darkgreen");
         }
+        for (let i = 0; i < 50; i++) {
+            let x = 1 + Math.random() * 1000;
+            let y = 1 + Math.random() * 800;
+            drawFlakes(x, y, "white");
+        }
         /*H�tte*/
         crc2.fillStyle = "darkred";
         crc2.fillRect(170, 550, 60, 40);
@@ -197,6 +202,14 @@ var aufgabe2;
         crc2.closePath();
         crc2.fillStyle = _color;
         crc2.fill();
+    }
+    function drawFlakes(_x, _y, _color) {
+        crc2.beginPath();
+        crc2.arc(_x, _y, 6, 0, 2 * Math.PI);
+        crc2.fillStyle = "white";
+        crc2.fill();
+        crc2.arc(_x, _y, 6, 0, 2 * Math.PI);
+        crc2.stroke();
     }
 })(aufgabe2 || (aufgabe2 = {}));
 //# sourceMappingURL=skipiste.js.map
