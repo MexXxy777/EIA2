@@ -30,7 +30,7 @@ namespace aufgabe2 {
         crc2.stroke();
         crc2.fillStyle = "#ffffff";
         crc2.fill();
-        
+
         /*Bäume*/
         crc2.fillStyle = "brown";
         crc2.fillRect(730, 580, 10, 20);
@@ -72,7 +72,7 @@ namespace aufgabe2 {
         crc2.moveTo(0, 300);
         crc2.lineTo(800, 600);
         crc2.stroke();
-        
+
         /*Gondel links*/
         crc2.beginPath();
         crc2.moveTo(120, 345);
@@ -83,7 +83,7 @@ namespace aufgabe2 {
         crc2.strokeRect(95, 380, 50, 30);
         crc2.fillStyle = "#b2dfee";
         crc2.fillRect(100, 385, 40, 12);
-        
+
         /*Gondel rechts*/
         crc2.beginPath();
         crc2.moveTo(525, 497);
@@ -95,7 +95,7 @@ namespace aufgabe2 {
         crc2.fillStyle = "#b2dfee";
         crc2.fillRect(505, 535, 40, 12);
 
-        
+
 
         /*Wolke*/
         crc2.beginPath();
@@ -181,7 +181,7 @@ namespace aufgabe2 {
         crc2.fillStyle = "#ffffff";
         crc2.fill();
 
-        
+
 
 
         for (let i: number = 0; i < 10; i++) {
@@ -189,15 +189,15 @@ namespace aufgabe2 {
             let y: number = 400 + Math.random() * 100;
             drawTree(x, y, "darkgreen");
         }
-        
+
         for (let i: number = 0; i < 50; i++) {
             let x: number = 1 + Math.random() * 1000;
             let y: number = 1 + Math.random() * 800;
             drawFlakes(x, y, "white");
-        
+
         }
-        
-        
+
+
         /*Hütte*/
         crc2.fillStyle = "darkred";
         crc2.fillRect(170, 550, 60, 40);
@@ -212,8 +212,8 @@ namespace aufgabe2 {
         crc2.closePath();
         crc2.fillStyle = "brown";
         crc2.fill();
-        
-       
+
+
     }
 
     function drawTree(_x: number, _y: number, _color: string): void {
@@ -229,7 +229,7 @@ namespace aufgabe2 {
         crc2.fillStyle = _color;
         crc2.fill();
         crc2.beginPath();
-        crc2.moveTo(_x , _y + 30);
+        crc2.moveTo(_x, _y + 30);
         crc2.lineTo(_x + 25, _y + 90);
         crc2.lineTo(_x - 25, _y + 90);
         crc2.closePath();
@@ -237,21 +237,20 @@ namespace aufgabe2 {
         crc2.fill();
 
     }
-    
+
     function drawFlakes(_x: number, _y: number, _color: string): void {
-        
+
         crc2.beginPath();
         crc2.arc(_x, _y, 6, 0, 2 * Math.PI);
         crc2.fillStyle = "white";
         crc2.fill();
         crc2.arc(_x, _y, 6, 0, 2 * Math.PI);
         crc2.stroke();
-        
-        
-        }
-    
-    
+
+
+    }
+
+
 
 }
-    
-    
+
