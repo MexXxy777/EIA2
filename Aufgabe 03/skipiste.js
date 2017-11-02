@@ -218,6 +218,7 @@ var aufgabe3;
         crc2.arc(_x, _y, 6, 0, 2 * Math.PI);
         crc2.stroke();
     }
+    // ANimation 
     function animate() {
         console.log("Timeout");
         crc2.clearRect(0, 0, 1000, 600);

@@ -253,7 +253,7 @@ namespace aufgabe3 {
 
     }
 
-
+// ANimation 
     function animate(): void {
         console.log("Timeout");
         crc2.clearRect(0, 0, 1000, 600);
