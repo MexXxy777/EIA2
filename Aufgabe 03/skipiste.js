@@ -2,7 +2,7 @@
 Aufgabe: (03 Skipiste mit Animation)
 Name: (Maximilian Braun)
 Matrikel: (256301)
-Datum: (29.10.2017)
+Datum: (05.11.2017)
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var aufgabe3;
@@ -11,8 +11,12 @@ var aufgabe3;
     let crc2;
     let x = 250;
     let y = 250;
-    let arrayX = [];
-    let arrayY = [];
+    let flockeX = [];
+    let flockeY = [];
+    let wolkeX = [];
+    let wolkeY = [];
+    let skiX = [];
+    let skiY = [];
     var canvasImg;
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
@@ -57,19 +61,6 @@ var aufgabe3;
         crc2.strokeRect(500, 530, 50, 30);
         crc2.fillStyle = "#b2dfee";
         crc2.fillRect(505, 535, 40, 12);
-        /*Wolke*/
-        crc2.beginPath();
-        crc2.arc(430, 110, 15, 0, 2 * Math.PI);
-        crc2.arc(390, 110, 15, 0, 2 * Math.PI);
-        crc2.arc(410, 105, 18, 0, 2 * Math.PI);
-        crc2.fillStyle = "white";
-        crc2.fill();
-        crc2.beginPath();
-        crc2.arc(940, 110, 15, 0, 2 * Math.PI);
-        crc2.arc(900, 110, 15, 0, 2 * Math.PI);
-        crc2.arc(920, 105, 18, 0, 2 * Math.PI);
-        crc2.fillStyle = "white";
-        crc2.fill();
         /*Berge Links*/
         crc2.beginPath();
         crc2.moveTo(600, 100);
@@ -132,14 +123,26 @@ var aufgabe3;
         crc2.closePath();
         crc2.fillStyle = "#ffffff";
         crc2.fill();
+        //For Schleife f�r die randomB�ume
         for (let i = 0; i < 10; i++) {
             let x = 50 + Math.random() * 300;
             let y = 400 + Math.random() * 100;
             drawTree(x, y, "darkgreen");
         }
+        //For Schleife f�r die Wolken
+        for (let i = 0; i < 3; i++) {
+            wolkeX[i] = 0 + Math.random() * 1000;
+            wolkeY[i] = 0 + Math.random() * 200;
+        }
+        //For Schleife f�r die Schneeflocken
         for (let i = 0; i < 100; i++) {
-            arrayX[i] = 0 + Math.random() * 1000;
-            arrayY[i] = 0 + Math.random() * 600;
+            flockeX[i] = 0 + Math.random() * 1000;
+            flockeY[i] = 0 + Math.random() * 600;
+        }
+        //For Schleife f�r den Skifahrer
+        for (let i = 0; i < 2; i++) {
+            skiX[i] = 0;
+            skiY[i] = 150 + Math.random() * 100;
         }
         /*H�tte*/
         crc2.fillStyle = "darkred";
@@ -161,7 +164,6 @@ var aufgabe3;
     function drawTree(_x, _y, _color) {
         crc2.fillStyle = "brown";
         crc2.fillRect(_x - 5, _y + 90, 10, 20);
-        crc2.beginPath();
         crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.lineTo(_x + 25, _y + 60);
@@ -210,7 +212,15 @@ var aufgabe3;
         crc2.fillStyle = "#darkgreen";
         crc2.fill();
     }
-    function drawFlakes(_x, _y, _color) {
+    function drawCloud(_x, _y) {
+        crc2.beginPath();
+        crc2.arc(_x, _y, 15, 0, 2 * Math.PI);
+        crc2.arc(_x - 40, _y, 15, 0, 2 * Math.PI);
+        crc2.arc(_x - 20, _y - 5, 18, 0, 2 * Math.PI);
+        crc2.fillStyle = "white";
+        crc2.fill();
+    }
+    function drawFlakes(_x, _y) {
         crc2.beginPath();
         crc2.arc(_x, _y, 6, 0, 2 * Math.PI);
         crc2.fillStyle = "white";
@@ -218,18 +228,43 @@ var aufgabe3;
         crc2.arc(_x, _y, 6, 0, 2 * Math.PI);
         crc2.stroke();
     }
-    // ANimation 
+    function drawSki(_x, _y) {
+        crc2.beginPath();
+        crc2.arc(_x, _y, 6, 0, 2 * Math.PI);
+        crc2.fillRect(_x - 2, _y + 5, 5, 20);
+        crc2.fillStyle = "black";
+        crc2.fill();
+    }
+    // Animation 
     function animate() {
         console.log("Timeout");
         crc2.clearRect(0, 0, 1000, 600);
         crc2.putImageData(canvasImg, 0, 0);
-        /*crc2.clearRect(0, 0, 400, 300);*/
-        for (let i = 0; i < arrayX.length; i++) {
-            if (arrayY[i] > 600) {
-                arrayY[i] = 0;
+        //Wolkenanimation
+        for (let i = 0; i < wolkeX.length; i++) {
+            if (wolkeX[i] > 1000) {
+                wolkeX[i] = 0;
             }
-            arrayY[i] += Math.random() + 10;
-            drawFlakes(arrayX[i], arrayY[i], "#000000");
+            wolkeX[i] += 2.5;
+            drawCloud(wolkeX[i], wolkeY[i]);
+        }
+        //Skifahrernanimation
+        for (let i = 0; i < skiX.length; i++) {
+            if (skiX[i] > 1000) {
+                skiX[i] = 0;
+                skiY[i] = 150 + Math.random() * 100; //Random Y Koordinaten f�r anderen Startpunkt
+            }
+            skiY[i] += 1.5;
+            skiX[i] += 4;
+            drawSki(skiX[i], skiY[i]);
+        }
+        //Schneeflockenanimation
+        for (let i = 0; i < flockeX.length; i++) {
+            if (flockeY[i] > 600) {
+                flockeY[i] = 0;
+            }
+            flockeY[i] += Math.random() + 10;
+            drawFlakes(flockeX[i], flockeY[i]);
         }
         window.setTimeout(animate, 20);
     }
