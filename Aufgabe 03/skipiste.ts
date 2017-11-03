@@ -141,6 +141,7 @@ namespace aufgabe3 {
         crc2.closePath();
         crc2.fillStyle = "#ffffff";
         crc2.fill();
+        
 
 
         //For Schleife für die randomBäume
@@ -160,7 +161,7 @@ namespace aufgabe3 {
             flockeY[i] = 0 + Math.random() * 600;
         }
           //For Schleife für den Skifahrer
-        for (let i: number = 0; i < 2; i++) {
+        for (let i: number = 0; i < 1; i++) {
             skiX[i] = 0;
             skiY[i] = 150 + Math.random() * 100;
         }
@@ -255,15 +256,25 @@ namespace aufgabe3 {
         crc2.fillStyle = "white";
         crc2.fill();
         crc2.arc(_x, _y, 6, 0, 2 * Math.PI);
+        crc2.lineWidth = 1;
+        crc2.strokeStyle = "grey"
         crc2.stroke();
     }
+    
     function drawSki(_x: number, _y: number): void {
 
+        
         crc2.beginPath();
         crc2.arc(_x, _y, 6, 0, 2 * Math.PI);
-        crc2.fillRect(_x - 2, _y + 5, 5, 20);
-        crc2.fillStyle = "black";
+        crc2.fillStyle = "#F79F81";
         crc2.fill();
+        crc2.fillStyle = "grey";
+        crc2.fillRect(_x - 4, _y + 5, 8, 20);
+        crc2.beginPath();
+        crc2.moveTo(_x - 20, _y + 18);
+        crc2.lineWidth = 5;
+        crc2.lineTo(_x + 20, _y + 35);
+        crc2.stroke();
         
     }
 
