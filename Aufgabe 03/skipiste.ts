@@ -257,7 +257,7 @@ namespace aufgabe3 {
         crc2.fill();
         crc2.arc(_x, _y, 6, 0, 2 * Math.PI);
         crc2.lineWidth = 1;
-        crc2.strokeStyle = "grey"
+        crc2.strokeStyle = "grey";
         crc2.stroke();
     }
     
@@ -296,7 +296,7 @@ namespace aufgabe3 {
         for (let i: number = 0; i < skiX.length; i++) {
             if (skiX[i] > 1000) {
                 skiX[i] = 0;
-                skiY[i] = 150 + Math.random() * 100; //Random Y Koordinaten für anderen Startpunkt
+                skiY[i] = 150 + Math.random() * 100; //Random Y-Koordinaten für anderen Startpunkt
             }
             skiY[i] += 1.5;
             skiX[i] += 4;

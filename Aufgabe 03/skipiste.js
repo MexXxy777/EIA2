@@ -260,7 +260,7 @@ var aufgabe3;
         for (let i = 0; i < skiX.length; i++) {
             if (skiX[i] > 1000) {
                 skiX[i] = 0;
-                skiY[i] = 150 + Math.random() * 100; //Random Y Koordinaten f�r anderen Startpunkt
+                skiY[i] = 150 + Math.random() * 100; //Random Y-Koordinaten f�r anderen Startpunkt
             }
             skiY[i] += 1.5;
             skiX[i] += 4;
