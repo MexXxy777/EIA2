@@ -161,12 +161,12 @@ namespace aufgabe3 {
             flockeY[i] = 0 + Math.random() * 600;
         }
           //For Schleife für den Skifahrer
-        for (let i: number = 0; i < 1; i++) {
+        for (let i: number = 0; i < 3; i++) {
             skiX[i] = 0;
-            skiY[i] = 150 + Math.random() * 100;
+            skiY[i] = 100 + Math.random() * 150;
         }
 
-        /*Hütte*/
+        /*Hütte unten*/
         crc2.fillStyle = "darkred";
         crc2.fillRect(170, 550, 60, 40);
         crc2.strokeRect(95, 380, 50, 30);
