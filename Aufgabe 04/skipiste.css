@@ -1,0 +1,16 @@
+/*
+Aufgabe: (04 Interface: Assoziative Skipiste)
+Name: (Maximilian Braun)
+Matrikel: (256301)
+Datum: (10.11.2017)
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
+canvas {
+	width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+	canvas {
+		width: 1000px;
+	}
+}
