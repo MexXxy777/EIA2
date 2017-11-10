@@ -319,7 +319,7 @@ namespace aufgabe4 {
         drawSki(skiX[i], skiY[i]);*/
 
 
-        //ockenanimation
+        //Flockenanimation
         for (let i: number = 0; i < flockeX.length; i++) {
             if (flockeY[i] > 600) {
                 flockeY[i] = 0;

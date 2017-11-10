@@ -273,7 +273,7 @@ var aufgabe4;
         skiY[i] += 1.5;
         skiX[i] += 4;
         drawSki(skiX[i], skiY[i]);*/
-        //ockenanimation
+        //Flockenanimation
         for (let i = 0; i < flockeX.length; i++) {
             if (flockeY[i] > 600) {
                 flockeY[i] = 0;
