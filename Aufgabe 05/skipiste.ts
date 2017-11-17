@@ -1,34 +1,21 @@
 /*
-Aufgabe: (04 Interface: Assoziative Skipiste)
+Aufgabe: (05 Class)
 Name: (Maximilian Braun)
 Matrikel: (256301)
-Datum: (10.11.2017)
+Datum: (19.11.2017)
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 
-namespace aufgabe4 {
-    //Aufgabe 3 zu Aufgabe 4 Interface erstellen
-    interface InterSki {
-        x: number;
-        y: number;
-        dx: number;
-        dy: number;
-        color: string;
-    }
-
+namespace aufgabe5 {
+    export let crc2: CanvasRenderingContext2D;
     window.addEventListener("load", init);
-    let crc2: CanvasRenderingContext2D;
     let x: number = 250;
     let y: number = 250;
-    let flockeX: number[] = [];
-    let flockeY: number[] = [];
-    let wolkeX: number[] = [];
-    let wolkeY: number[] = [];
-    let skier: InterSki[] = []; //Interface Assoziatives Array
+    let flocke: InterFlocke[] = [];
+    let wolke: InterWolke[] = [];
+    let skier: InterSki[] = []; //InterfaceArray
 
     var canvasImg: any;
-
-
 
     function init(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
@@ -37,12 +24,9 @@ namespace aufgabe4 {
         console.log(crc2);
         console.log("setTimeout");
 
-
-
         /*Himmel - Canvas breiter als Aufgabenstellung*/
         crc2.fillStyle = "#b2dfee";
         crc2.fillRect(0, 0, 1000, 600);
-
 
         /*Piste*/
         crc2.beginPath();
@@ -53,7 +37,6 @@ namespace aufgabe4 {
         crc2.stroke();
         crc2.fillStyle = "#ffffff";
         crc2.fill();
-
 
         /*Lift-Linie*/
         crc2.beginPath();
@@ -151,7 +134,6 @@ namespace aufgabe4 {
         crc2.fill();
 
 
-
         //For Schleife für die randomBäume
         for (let i: number = 0; i < 10; i++) {
             let x: number = 50 + Math.random() * 300;
@@ -160,26 +142,20 @@ namespace aufgabe4 {
         }
         //For Schleife für die Wolken
         for (let i: number = 0; i < 3; i++) {
-            wolkeX[i] = 0 + Math.random() * 1000;
-            wolkeY[i] = 0 + Math.random() * 200;
+            let s: InterWolke = new InterWolke(0 + Math.random() * 1000, 0 + Math.random() * 200, 2.5, 0, "white");
+            wolke[i] = s;
         }
         //For Schleife für die Schneeflocken
         for (let i: number = 0; i < 100; i++) {
-            flockeX[i] = 0 + Math.random() * 1000;
-            flockeY[i] = 0 + Math.random() * 600;
+            let s: InterFlocke = new InterFlocke(0 + Math.random() * 1000, 0 + Math.random() * 600, 0, Math.random() + 10, "white");
+            flocke[i] = s;
         }
-        //Aufgabe 3 zu Aufgabe 4 For Schleife für den Skifahrer
+        
+        //Schleife für den Skifahrer
         for (let i: number = 0; i < 3; i++) {
-            skier[i] = {
-                x: 0,       //Startpunkt X
-                y: 100 + Math.random() * 150, //Startpunkt Y
-                dx: 10,     //Richtung - Geschwindigkeit X
-                dy: 4,      //Richtung - Geschwindigkeit Y
-                color: "hsl(" + Math.random() * 360 + ", 100%, 50%)"
-            };
-        }   
-
-
+            let s: InterSki = new InterSki(0, 100 + Math.random() * 150, 10, 4, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
+            skier[i] = s;
+        }
         /*Hütte unten*/
         crc2.fillStyle = "darkred";
         crc2.fillRect(170, 550, 60, 40);
@@ -197,7 +173,7 @@ namespace aufgabe4 {
         canvasImg = crc2.getImageData(0, 0, 1000, 600); //Bild machen nachdem alles gezeichnet wurde
 
         animate(); //Funktionsaufruf der Animation
-    }
+    }//Funktion init Ende
 
     function drawTree(_x: number, _y: number, _color: string): void {
 
@@ -251,43 +227,7 @@ namespace aufgabe4 {
         crc2.closePath();
         crc2.fillStyle = "#darkgreen";
         crc2.fill();
-
     }
-
-    function drawCloud(_x: number, _y: number): void {
-
-        crc2.beginPath();
-        crc2.arc(_x, _y, 15, 0, 2 * Math.PI);
-        crc2.arc(_x - 40, _y, 15, 0, 2 * Math.PI);
-        crc2.arc(_x - 20, _y - 5, 18, 0, 2 * Math.PI);
-        crc2.fillStyle = "white";
-        crc2.fill();
-    }
-    function drawFlakes(_x: number, _y: number): void {
-
-        crc2.beginPath();
-        crc2.arc(_x, _y, 6, 0, 2 * Math.PI);
-        crc2.fillStyle = "white";
-        crc2.fill();
-        crc2.arc(_x, _y, 6, 0, 2 * Math.PI);
-        crc2.lineWidth = 1;
-        crc2.strokeStyle = "grey";
-        crc2.stroke();
-    }
-
-    /* Aufgabe 3 zu Aufgabe 4 function drawSki(_x: number, _y: number): void {
-         crc2.beginPath();
-         crc2.arc(_x, _y, 6, 0, 2 * Math.PI);
-         crc2.fillStyle = "#F79F81";
-         crc2.fill();
-         crc2.fillStyle = "grey";
-         crc2.fillRect(_x - 4, _y + 5, 8, 20);
-         crc2.beginPath();
-         crc2.moveTo(_x - 20, _y + 18);
-         crc2.lineWidth = 5;
-         crc2.lineTo(_x + 20, _y + 35);
-         crc2.stroke();
-     }*/
 
     // Animation 
     function animate(): void {
@@ -295,60 +235,27 @@ namespace aufgabe4 {
         crc2.clearRect(0, 0, 1000, 600);
         crc2.putImageData(canvasImg, 0, 0);
 
+        //Flockenanimation
+        for (let i: number = 0; i < flocke.length; i++) {
+            let s: InterFlocke = flocke[i];
+            s.moveAndDrawSnow();
+        }
+
         //Wolkenanimation
-        for (let i: number = 0; i < wolkeX.length; i++) {
-            if (wolkeX[i] > 1000) {
-                wolkeX[i] = 0;
-            }
-            wolkeX[i] += 2.5;
-            drawCloud(wolkeX[i], wolkeY[i]);
+        for (let i: number = 0; i < wolke.length; i++) {
+            let s: InterWolke = wolke[i];
+            s.moveAndDrawCloud();
+            
         }
         //Skifahrernanimation
         for (let i: number = 0; i < skier.length; i++) {
-            moveAndDrawSkier(skier[i]); //Aufruf der Skifahrerfunktion
-            if (skier[i].x > 1000, skier[i].y > 600) {
-                skier[i].x = 0;
-                skier[i].y = 150 + Math.random() * 100;
-            }
+            let s: InterSki = skier[i];
+            s.moveAndDrawSkier();
         }
-
-        /*Aufgabe 3 zu Aufgabe 4 skier[i].x = 0,
-        skier[i].y = 150 + Math.random() * 100, Random Y-Koordinaten für anderen Startpunkt
-        skiY[i] += 1.5;
-        skiX[i] += 4;
-        drawSki(skiX[i], skiY[i]);*/
-
-
-        //Flockenanimation
-        for (let i: number = 0; i < flockeX.length; i++) {
-            if (flockeY[i] > 600) {
-                flockeY[i] = 0;
-            }
-            flockeY[i] += Math.random() + 10;
-            drawFlakes(flockeX[i], flockeY[i]);
-        }
-
         window.setTimeout(animate, 10);
 
     }
 
-    //Funktion zum Zeichnen und Animieren der Skifahrer
-    function moveAndDrawSkier(_ski: InterSki): void {
-        _ski.x += _ski.dx;
-        _ski.y += _ski.dy;  //Richtung & Geschwindigkeit der Skifahrer 
-        crc2.beginPath();
-        crc2.arc(_ski.x, _ski.y, 6, 0, 2 * Math.PI);
-        crc2.fillStyle = "#F79F81";
-        crc2.fill();
-        crc2.fillStyle = _ski.color;
-        crc2.fillRect(_ski.x - 4, _ski.y + 5, 8, 20);
-        crc2.beginPath();
-        crc2.moveTo(_ski.x - 20, _ski.y + 18);
-        crc2.lineWidth = 5;
-        crc2.lineTo(_ski.x + 20, _ski.y + 35);
-        crc2.strokeStyle = "black";
-        crc2.stroke();
+    //Ende Animate Funktion
+}// Ende Namespace
 
-
-    }
-}

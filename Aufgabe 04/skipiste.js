@@ -286,7 +286,7 @@ var aufgabe4;
     //Funktion zum Zeichnen und Animieren der Skifahrer
     function moveAndDrawSkier(_ski) {
         _ski.x += _ski.dx;
-        _ski.y += _ski.dy; //Richtung der Skifahrer 
+        _ski.y += _ski.dy; //Richtung & Geschwindigkeit der Skifahrer 
         crc2.beginPath();
         crc2.arc(_ski.x, _ski.y, 6, 0, 2 * Math.PI);
         crc2.fillStyle = "#F79F81";
