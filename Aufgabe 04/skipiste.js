@@ -15,7 +15,7 @@ var aufgabe4;
     let flockeY = [];
     let wolkeX = [];
     let wolkeY = [];
-    let skier = []; //InterfaceArray
+    let skier = []; //Interface Assoziatives Array
     var canvasImg;
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
@@ -262,7 +262,7 @@ var aufgabe4;
         }
         //Skifahrernanimation
         for (let i = 0; i < skier.length; i++) {
-            moveAndDrawSkier(skier[i]);
+            moveAndDrawSkier(skier[i]); //Aufruf der Skifahrerfunktion
             if (skier[i].x > 1000, skier[i].y > 600) {
                 skier[i].x = 0;
                 skier[i].y = 150 + Math.random() * 100;
@@ -286,7 +286,7 @@ var aufgabe4;
     //Funktion zum Zeichnen und Animieren der Skifahrer
     function moveAndDrawSkier(_ski) {
         _ski.x += _ski.dx;
-        _ski.y += _ski.dy;
+        _ski.y += _ski.dy; //Richtung der Skifahrer 
         crc2.beginPath();
         crc2.arc(_ski.x, _ski.y, 6, 0, 2 * Math.PI);
         crc2.fillStyle = "#F79F81";

@@ -24,7 +24,7 @@ namespace aufgabe4 {
     let flockeY: number[] = [];
     let wolkeX: number[] = [];
     let wolkeY: number[] = [];
-    let skier: InterSki[] = []; //InterfaceArray
+    let skier: InterSki[] = []; //Interface Assoziatives Array
 
     var canvasImg: any;
 
@@ -171,13 +171,13 @@ namespace aufgabe4 {
         //Aufgabe 3 zu Aufgabe 4 For Schleife für den Skifahrer
         for (let i: number = 0; i < 3; i++) {
             skier[i] = {
-                x: 0,
-                y: 100 + Math.random() * 150,
-                dx: 10,
-                dy: 4,
+                x: 0,       //Startpunkt X
+                y: 100 + Math.random() * 150, //Startpunkt Y
+                dx: 10,     //Richtung - Geschwindigkeit X
+                dy: 4,      //Richtung - Geschwindigkeit Y
                 color: "hsl(" + Math.random() * 360 + ", 100%, 50%)"
             };
-        }
+        }   
 
 
         /*Hütte unten*/
@@ -305,7 +305,7 @@ namespace aufgabe4 {
         }
         //Skifahrernanimation
         for (let i: number = 0; i < skier.length; i++) {
-            moveAndDrawSkier(skier[i]);
+            moveAndDrawSkier(skier[i]); //Aufruf der Skifahrerfunktion
             if (skier[i].x > 1000, skier[i].y > 600) {
                 skier[i].x = 0;
                 skier[i].y = 150 + Math.random() * 100;
@@ -335,7 +335,7 @@ namespace aufgabe4 {
     //Funktion zum Zeichnen und Animieren der Skifahrer
     function moveAndDrawSkier(_ski: InterSki): void {
         _ski.x += _ski.dx;
-        _ski.y += _ski.dy;
+        _ski.y += _ski.dy;  //Richtung der Skifahrer 
         crc2.beginPath();
         crc2.arc(_ski.x, _ski.y, 6, 0, 2 * Math.PI);
         crc2.fillStyle = "#F79F81";
