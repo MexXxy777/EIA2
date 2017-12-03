@@ -13,7 +13,7 @@ var StudiVZ;
         switch (action) {
             case "n":
             case "N":
-                var input = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Vorname, Name, Alter, Geschlecht (0 f�r männchen oder 1 f�r weibchen) und Kommentar");
+                var input = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Vorname, Name, Alter, Geschlecht (0 fuer männchen oder 1 fuer weibchen) und Kommentar");
                 alert(saveData(input));
                 break;
             case "a":

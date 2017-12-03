@@ -24,7 +24,7 @@ namespace StudiVZ {
         switch (action) {
             case "n":
             case "N":
-                var input: string = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Vorname, Name, Alter, Geschlecht (0 für mÃ¤nnchen oder 1 für weibchen) und Kommentar");
+                var input: string = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Vorname, Name, Alter, Geschlecht (0 fuer mÃ¤nnchen oder 1 fuer weibchen) und Kommentar");
                 alert(saveData(input));
                 break;
             case "a":
