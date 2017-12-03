@@ -39,29 +39,29 @@ namespace StudiVZ {
     }
 
     function saveData(_input: string): string {
-        let res = _input.split(",", 6); //String Methode Input Split
+        let save = _input.split(",", 6); //String Methode Input Split
 
-        if (parseInt(res[0]) == NaN)
+        if (parseInt(save[0]) == NaN)
         { return "Bitte geben Sie Ihre Matrikelnummer ein" }
-        else if ((res[1]) == "")
+        else if ((save[1]) == "")
         { return "Bitte geben Sie Ihren Vornamen ein" }
-        else if ((res[2]) == "")
+        else if ((save[2]) == "")
         { return "Bitte geben Sie Ihren  Nachnamen ein!" }
-        else if (parseInt(res[3]) == NaN)
+        else if (parseInt(save[3]) == NaN)
         { return "Bitte geben Sie Ihr Alter ein" }
-        else if (parseInt(res[4]) != 0 && parseInt(res[4]) != 1)
+        else if (parseInt(save[4]) != 0 && parseInt(save[4]) != 1)
         { return "Bitte geben Sie Ihr Geschlecht an" }
-        else if ((res[5]) == "")
+        else if ((save[5]) == "")
         { return "Bitte geben Sie einen Kommentar ein" }
 
         else {
             var student: StudentData = {
-                matrikelnummer: parseInt(res[0]),
-                vorname: res[1],
-                name: res[2],
-                alter: parseInt(res[3]),
-                geschlecht: parseInt(res[4]) == 1, //Abspeicherung von 1=richtig resultiert 0=Falsch
-                kommentar: res[5]
+                matrikelnummer: parseInt(save[0]),
+                vorname: save[1],
+                name: save[2],
+                alter: parseInt(save[3]),
+                geschlecht: parseInt(save[4]) == 1, //Abspeicherung von 1=richtig resultiert 0=Falsch
+                kommentar: save[5]
             };
 
             students.push(student);
@@ -69,9 +69,9 @@ namespace StudiVZ {
             return "Ihre Daten wurden gespeichert";
         }
     }
-    function queryData(_matrikel: number): string {
+    function queryData(_matrikelnr: number): string {
         for (var i: number = 0; i < students.length; i++) {
-            if (students[i].matrikelnummer == _matrikel) {
+            if (students[i].matrikelnummer == _matrikelnr) {
 
                 let gender: string;
 
