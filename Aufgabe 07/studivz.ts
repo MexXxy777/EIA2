@@ -38,8 +38,8 @@ namespace StudiVZ {
         }
     }
 
-    function saveData(_input: string): string {
-        let save = _input.split(",", 6); //String Methode Input Split
+    function saveData(_eingabe: string): string {
+        let save = _eingabe.split(",", 6); //String Methode Input Split
 
         if (parseInt(save[0]) == NaN)
         { return "Bitte geben Sie Ihre Matrikelnummer ein" }
