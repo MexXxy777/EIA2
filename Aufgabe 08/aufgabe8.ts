@@ -26,13 +26,13 @@ namespace aufgabe8 {
 
     function quadrat(_x: string, _y: string, _color: string, _width: string, _height: string): void {
 
-        let div: HTMLDivElement = document.createElement("div"); // HTML***Element und createElement(***)erstellt beliebiges HTMLelement
-        div.style.marginLeft = _x.toString(); 
-        div.style.marginTop = _y.toString();
-        div.style.backgroundColor = _color;
-        div.style.width = _width;
-        div.style.height = _height;
-        document.body.appendChild(div); //DIV Element nach Body als Kind einfügen
+        let h: HTMLDivElement = document.createElement("div"); // HTML***Element und createElement(***)erstellt beliebiges HTMLelement
+        h.style.marginLeft = _x.toString(); 
+        h.style.marginTop = _y.toString();
+        h.style.backgroundColor = _color;
+        h.style.width = _width;
+        h.style.height = _height;
+        document.body.appendChild(h); //DIV Element nach Body als Kind einfügen
 
     }
 

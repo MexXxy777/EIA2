@@ -21,13 +21,13 @@ var aufgabe8;
         }
     }
     function quadrat(_x, _y, _color, _width, _height) {
-        let div = document.createElement("div"); // HTML***Element und createElement(***)erstellt beliebiges HTMLelement
-        div.style.marginLeft = _x.toString();
-        div.style.marginTop = _y.toString();
-        div.style.backgroundColor = _color;
-        div.style.width = _width;
-        div.style.height = _height;
-        document.body.appendChild(div); //DIV Element nach Body als Kind einf�gen
+        let h = document.createElement("div"); // HTML***Element und createElement(***)erstellt beliebiges HTMLelement
+        h.style.marginLeft = _x.toString();
+        h.style.marginTop = _y.toString();
+        h.style.backgroundColor = _color;
+        h.style.width = _width;
+        h.style.height = _height;
+        document.body.appendChild(h); //DIV Element nach Body als Kind einf�gen
     }
 })(aufgabe8 || (aufgabe8 = {}));
 //# sourceMappingURL=aufgabe8.js.map
