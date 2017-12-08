@@ -16,18 +16,22 @@ var aufgabe8;
             }
         }
         else {
-            window.alert("Zwischen 10 und 100!!!"); //Falscheingabe f�hrt zu neuen Funktionsaufruf
+            window.alert("Zwischen 10 und 100!!!"); //Falscheingabe führt zu neuen Funktionsaufruf
             init2();
         }
     }
     function quadrat(_x, _y, _color, _width, _height) {
         let h = document.createElement("div"); // HTML***Element und createElement(***)erstellt beliebiges HTMLelement
+        h.style.position = "absolute";
+        h.style.display = "inline";
         h.style.marginLeft = _x.toString();
         h.style.marginTop = _y.toString();
         h.style.backgroundColor = _color;
         h.style.width = _width;
         h.style.height = _height;
-        document.body.appendChild(h); //DIV Element nach Body als Kind einf�gen
+        h.style.border = "3px solid black";
+        h.innerText = "";
+        document.body.appendChild(h); //DIV Element nach Body als Kind einfügen
     }
 })(aufgabe8 || (aufgabe8 = {}));
 //# sourceMappingURL=aufgabe8.js.map

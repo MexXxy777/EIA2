@@ -27,15 +27,12 @@ body {
 	font-size: small;
 	background: grey;
 }
-div {position: absolute;
-	display: inline;
-  	
-	}
-	h1 {font-family: 'Lobster', cursive;
+
+h1 		{		font-family: 'Lobster', cursive;
 				font-size: 3em;
 				position: relative;
 				top: -35%;
-				left: 30%;	
+				left: 35%;	
 				text-shadow: 3px 2px 4px black;}
 
    
