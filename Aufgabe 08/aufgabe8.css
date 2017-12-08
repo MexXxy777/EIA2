@@ -1,0 +1,41 @@
+/*Aufgabe: (08 DynHTML)
+Name: (Maximilian Braun)
+Matrikel: (256301)
+Datum: (08.12.2017)
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
+body {
+     background-color: magenta;
+	-webkit-animation:rainbow 1s infinite;
+	}
+@-webkit-keyframes rainbow {
+0% {background: #ff0000;}
+10% {background: #ff8000;}
+20% {background: #ffff00;}
+30% {background: #80ff00;}
+40% {background: #00ff00;}
+50% {background: #00ff80;}
+60% {background: #00ffff;}
+70% {background: #0080ff;}
+80% {background: #0000ff;}
+90% {background: #8000ff;}
+100% {background: #ff0080;}
+}
+
+body {
+	font-family: arial;
+	font-size: small;
+	background: grey;
+}
+div {position: absolute;
+	display: inline;
+  	
+	}
+	h1 {font-family: 'Lobster', cursive;
+				font-size: 3em;
+				position: relative;
+				top: -35%;
+				left: 30%;	
+				text-shadow: 3px 2px 4px black;}
+
+   
