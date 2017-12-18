@@ -10,12 +10,13 @@ var StudiVZ;
     var stop = false;
     while (!stop) {
         var action = prompt("Datensatz anlegen (n), abfragen(a) oder Programm beenden (s)\nn,a oder s eingeben");
+        //aktion durch eingabefenster nimmt string entgegen
         switch (action) {
             case "n":
             case "N":
                 var input = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Vorname, Name, Alter, Geschlecht (0 fuer männchen oder 1 fuer weibchen) und Kommentar");
                 alert(saveData(input));
-                break;
+                break; //break gibt den wert aus
             case "a":
             case "A":
                 var matrikel = parseInt(prompt("Eingabe Matrikelnummer"));

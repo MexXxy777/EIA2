@@ -20,13 +20,13 @@ namespace StudiVZ {
 
     while (!stop) {
         var action: string = prompt("Datensatz anlegen (n), abfragen(a) oder Programm beenden (s)\nn,a oder s eingeben");
-
+        //aktion durch eingabefenster nimmt string entgegen
         switch (action) {
             case "n":
             case "N":
                 var input: string = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Vorname, Name, Alter, Geschlecht (0 fuer männchen oder 1 fuer weibchen) und Kommentar");
                 alert(saveData(input));
-                break;
+                break; //break gibt den wert aus
             case "a":
             case "A":
                 var matrikel: number = parseInt(prompt("Eingabe Matrikelnummer"));
@@ -41,7 +41,7 @@ namespace StudiVZ {
     function saveData(_eingabe: string): string {
         let save = _eingabe.split(",", 6); //String Methode Input Split
 
-        if (parseInt(save[0]) == NaN)
+        if (parseInt(save[0]) == NaN) //NaN= Not a Number
         { return "Bitte geben Sie Ihre Matrikelnummer ein" }
         else if ((save[1]) == "")
         { return "Bitte geben Sie Ihren Vornamen ein" }
