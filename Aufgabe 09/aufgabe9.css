@@ -1,0 +1,27 @@
+/*
+Aufgabe: (09 DynHTML: Erpresserbrief)
+Name: (Maximilian Braun)
+Matrikel: (256301)
+Datum: (15.12.2017)
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
+
+body {
+	font-family: arial;
+	font-size: small;
+	background: grey;
+}
+
+h1 		{		font-family: 'Lobster', cursive;
+				font-size: 4em;
+				position: relative;
+				top: -30%;
+				left: 25%;	
+				text-shadow: 3px 2px 4px #87EBFF;}
+				
+div {
+	float: left;
+	text-align: center;
+}
+   
