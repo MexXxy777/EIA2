@@ -5,7 +5,7 @@ Datum: (07.01.2018)
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 
 namespace aufgabe10 {
-    window.addEventListener("load", createElements);
+    window.addEventListener("load", createForms);
     window.addEventListener("change", schubkarre);
 
     var name: HTMLInputElement;
@@ -23,19 +23,18 @@ namespace aufgabe10 {
     var karrenSchmuck: string[][] = [];
     var karrenLieferung: string[] = ["bitte Lieferung auswählen", "0"];
 
-    function createElements(): void {
-        //Baumart:
+    function createForms(): void {
         let sorte: HTMLDivElement = <HTMLDivElement>document.getElementById("sorte");
-        let selectBox: HTMLSelectElement = document.createElement("select");
-        selectBox.name = "SelectBaumart";
-        selectBox.id = "selectBaumart";
-        sorte.appendChild(selectBox);
+        let select: HTMLSelectElement = document.createElement("select");
+        select.name = "SelectBaumart";
+        select.id = "selectBaumart";
+        sorte.appendChild(select);
         for (let i: number = 0; i < artikel.length; i++) {
             if (artikel[i].art == "Sorte") {
                 var choice: HTMLElement = document.createElement("option");
                 choice.innerText = artikel[i].bezeichnung;
                 choice.id = "option" + i;
-                selectBox.appendChild(choice);
+                select.appendChild(choice);
             }
         }
 
@@ -228,24 +227,24 @@ namespace aufgabe10 {
             }
         }
 
-        let korb: HTMLDivElement = <HTMLDivElement>document.getElementById("bestellung");
-        korb.style.width = "30%";
-        korb.style.height = "auto";
-        korb.style.backgroundColor = "black";
-        korb.innerHTML = "<span id='karren'>Schubkarre</span><hr>";
-        korb.innerHTML += "Baumsorte: " + karrenSorte[0] + " " + karrenSorte[1] + "0€ <br>";
-        korb.innerHTML += "Baumhalterung: " + karrenHalter[0] + " " + karrenHalter[1] + "0€ <br>";
-        korb.innerHTML += "Beleuchtung: " + karrenBeleuchtung[0] + " " + karrenBeleuchtung[1] + "0€ <br>";
-        korb.innerHTML += "Lieferung: " + karrenLieferung[0] + " " + karrenLieferung[1] + "0€ <br>";
+        let warenkorb: HTMLDivElement = <HTMLDivElement>document.getElementById("bestellung");
+        warenkorb.style.width = "30%";
+        warenkorb.style.height = "auto";
+        warenkorb.style.backgroundColor = "black";
+        warenkorb.innerHTML = "<span id='karren'>Schubkarre</span><hr>";
+        warenkorb.innerHTML += "Baumsorte: " + karrenSorte[0] + " " + karrenSorte[1] + "0€ <br>";
+        warenkorb.innerHTML += "Baumhalterung: " + karrenHalter[0] + " " + karrenHalter[1] + "0€ <br>";
+        warenkorb.innerHTML += "Beleuchtung: " + karrenBeleuchtung[0] + " " + karrenBeleuchtung[1] + "0€ <br>";
+        warenkorb.innerHTML += "Lieferung: " + karrenLieferung[0] + " " + karrenLieferung[1] + "0€ <br>";
 
         gesamtkosten = parseFloat(karrenSorte[1]) + parseFloat(karrenBeleuchtung[1]) + parseFloat(karrenHalter[1]) + parseFloat(karrenLieferung[1]);
         for (let i: number = 0; i < stepper.length; i++) {
             if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
                 gesamtkosten += parseFloat(karrenSchmuck[i][1]);
-                korb.innerHTML += "" + karrenSchmuck[i][0] + " " + karrenSchmuck[i][1] + "0€ <br>";
+                warenkorb.innerHTML += "" + karrenSchmuck[i][0] + " " + karrenSchmuck[i][1] + "0€ <br>";
             }
         }
-        korb.innerHTML += "<hr> Gesamtkosten: " + Math.round(gesamtkosten * 100) / 100 + "0€";
+        warenkorb.innerHTML += "<hr> Gesamtkosten: " + Math.round(gesamtkosten * 100) / 100 + "0€";
     }
 
     //Pr�fung der eingegebenen Daten

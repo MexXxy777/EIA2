@@ -24,8 +24,8 @@ h1 		{		font-family: 'Lobster', cursive;
 				text-shadow: 3px 2px 4px #87EBFF;}
 				
  
- h2 {
-	font-size: 1.2em;
+ legend {
+	font-size: 1.5em;
 }
 
 input:invalid {
@@ -57,11 +57,11 @@ input {
 
 button {
 	background-color: black;
-	color: white;
+	color: #87EBFF;
     text-align: center;
     display: inline-block;
-    font-size: 1em;
-    margin: 0.02em;
+    font-size: 1.5em;
+    margin-left: 3em;
     border-radius: 8em;
     cursor: pointer;
 }
@@ -72,7 +72,12 @@ button:hover	{box-Shadow: 0px 0px 8px #87EBFF;}
 #daten input {
 	display: block;
 	height: 10%;
-	width: 15%;
+	width: 50%;
+}
+
+fieldset {
+	width: 500px;
+	height: auto;
 }
 
 #bestellung {
