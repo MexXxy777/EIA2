@@ -10,6 +10,7 @@ var aufgabe9;
     window.addEventListener("load", init);
     //Buchstaben Erstellen   
     let buchstaben = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    let saveLetter = ""; //zum speichern der angeklickten Buchstaben
     //Funktion f�r erstellen der Buchstaben
     function init() {
         for (let i = 0; i < buchstaben.length; i++) {
@@ -24,6 +25,8 @@ var aufgabe9;
             buchstabeDiv.style.fontFamily = "'Anton', sans-serif";
             buchstabeDiv.addEventListener("click", handleMouseClickBuchstabe);
             document.body.appendChild(buchstabeDiv); //Buchstaben als Kind hinter Body einf�gen
+            buchstabeDiv.id = buchstaben[i].toLowerCase();
+            buchstabeDiv.className = "letter";
         }
         // Erstellen eines Divs zum einf�gen der Buchstaben
         let area = document.createElement("div");
@@ -40,13 +43,35 @@ var aufgabe9;
         let clickDiv = _event.target;
         clickDiv.style.color = "#87EBFF";
         clickDiv.style.backgroundColor = "black";
+        saveLetter = clickDiv.innerText;
+        saveLetter = clickDiv.id.toUpperCase();
     }
     function handleMouseClickBrief(_event) {
         let placeLetter = document.createElement("div");
+        placeLetter.innerText = saveLetter;
         placeLetter.style.position = "absolute";
         placeLetter.style.left = _event.pageX + "px";
         placeLetter.style.top = _event.pageY + "px";
         document.body.appendChild(placeLetter);
+        placeLetter.addEventListener("click", cancelLetterMouseDown);
+    }
+    function handleKeydown(_event) {
+        if (buchstaben.indexOf(_event.key.toUpperCase()) != -1) {
+            let key = document.getElementById(_event.key);
+            key.style.color = "black";
+            key.style.fontSize = "2em";
+            key.style.fontFamily = "'Anton', sans-serif";
+            saveLetter = _event.key.toUpperCase();
+            console.log(_event);
+        }
+    }
+    function cancelLetterMouseDown(_event) {
+        if (_event.altKey == false)
+            return;
+        if (_event.altKey == true) {
+            let c = _event.target;
+            document.body.removeChild(c);
+        }
     }
 })(aufgabe9 || (aufgabe9 = {}));
 //# sourceMappingURL=main.js.map

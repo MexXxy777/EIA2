@@ -11,7 +11,8 @@ namespace aufgabe9 {
     //Buchstaben Erstellen   
 
     let buchstaben: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
- 
+     
+    let saveLetter: string = ""; //zum speichern der angeklickten Buchstaben
 
     //Funktion für erstellen der Buchstaben
     function init(): void {
@@ -27,8 +28,12 @@ namespace aufgabe9 {
             buchstabeDiv.style.fontFamily = "'Anton', sans-serif";
             buchstabeDiv.addEventListener("click", handleMouseClickBuchstabe);
             document.body.appendChild(buchstabeDiv); //Buchstaben als Kind hinter Body einfügen
-        }
+            
+            buchstabeDiv.id = buchstaben[i].toLowerCase();
+            buchstabeDiv.className = "letter";
 
+        }
+ 
         // Erstellen eines Divs zum einfügen der Buchstaben
         let area: HTMLDivElement = document.createElement("div");
         area.style.backgroundColor = "lightgrey";
@@ -45,14 +50,41 @@ namespace aufgabe9 {
             let clickDiv: HTMLHeadingElement = <HTMLHeadingElement>_event.target;
             clickDiv.style.color = "#87EBFF";
             clickDiv.style.backgroundColor = "black";
+            saveLetter = clickDiv.innerText;
+            saveLetter = clickDiv.id.toUpperCase();
         }
 
     function handleMouseClickBrief(_event: MouseEvent): void {
         let placeLetter: HTMLDivElement = document.createElement("div");
+        placeLetter.innerText = saveLetter;
         placeLetter.style.position = "absolute";
         placeLetter.style.left = _event.pageX + "px";
         placeLetter.style.top = _event.pageY + "px";
         document.body.appendChild(placeLetter);
+        placeLetter.addEventListener("click", cancelLetterMouseDown);
     }
+    
+     function handleKeydown(_event: KeyboardEvent): void {
+        if (buchstaben.indexOf(_event.key.toUpperCase()) != -1) {
 
+            let key: HTMLDivElement = <HTMLDivElement>document.getElementById(_event.key);
+            key.style.color = "black";
+            key.style.fontSize = "2em";
+            key.style.fontFamily = "'Anton', sans-serif";
+            saveLetter = _event.key.toUpperCase();
+
+            console.log(_event);
 }
+         
+         }
+    function cancelLetterMouseDown(_event: MouseEvent): void {
+        if (_event.altKey == false)
+            return;
+
+        if (_event.altKey == true) {
+            let c: HTMLDivElement = <HTMLDivElement>_event.target;
+            document.body.removeChild(c);
+        }
+}
+}
+    
