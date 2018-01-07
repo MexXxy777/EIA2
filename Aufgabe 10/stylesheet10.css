@@ -1,0 +1,97 @@
+/*
+Aufgabe: (10 FormElements: Weihnachtsbaumkonfigurator)
+Name: (Maximilian Braun)
+Matrikel: (256301)
+Datum: (07.01.2018)
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
+
+body {
+	float: left;
+	font-family: "Arial";
+	background-color: grey;
+	font-size: 1em;
+	width: 100%;
+	margin-left: 4em;
+}
+
+h1 		{		font-family: 'Lobster', cursive;
+				font-size: 4em;
+				position: relative;
+				top: -30%;
+				left: 5%;	
+				text-shadow: 3px 2px 4px #87EBFF;}
+				
+ 
+ h2 {
+	font-size: 1.2em;
+}
+
+input:invalid {
+	background: black;
+	color: red;
+	box-Shadow: 0px 0px 8px red;
+}
+
+input:valid {	
+	background-color: black;
+	color: #87EBFF;
+	box-Shadow: 0px 0px 8px #87EBFF;
+}
+
+option {	
+	background-color: black;
+	color: #87EBFF;
+	box-Shadow: 0px 0px 8px #87EBFF;
+}
+
+label::after {
+	display: block;
+}
+
+input {
+	margin: 0.5em;
+
+}
+
+button {
+	background-color: black;
+	color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 1em;
+    margin: 0.02em;
+    border-radius: 8em;
+    cursor: pointer;
+}
+
+button:hover	{box-Shadow: 0px 0px 8px #87EBFF;}
+
+
+#daten input {
+	display: block;
+	height: 10%;
+	width: 15%;
+}
+
+#bestellung {
+	position: fixed;
+	right: 10%;
+	bottom: 5%;
+	color: #87EBFF;
+	padding: 2em;
+	box-Shadow: 0px 5px 15px #87EBFF;
+	border-radius: 8em;
+	text-align: center
+}
+
+#karren {
+	font-size: 2em;
+}
+img[alt="boom"] {
+				position: fixed;
+				right: 14%;
+				top: 2%;
+				}
+   
