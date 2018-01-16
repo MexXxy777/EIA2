@@ -165,7 +165,7 @@ var aufgabe10;
         let button = document.getElementById("button");
         let submit = document.createElement("button");
         submit.name = "Button";
-        submit.type = "button";
+        submit.type = "submit";
         submit.innerText = "Eingaben prüfen";
         submit.addEventListener("mousedown", handleMouseDown);
         button.appendChild(submit);

@@ -185,7 +185,7 @@ namespace aufgabe10 {
         let button: HTMLDivElement = <HTMLDivElement>document.getElementById("button");
         let submit: HTMLButtonElement = document.createElement("button");
         submit.name = "Button";
-        submit.type = "button";
+        submit.type = "submit";
         submit.innerText = "Eingaben prüfen";
         submit.addEventListener("mousedown", handleMouseDown);
         button.appendChild(submit);
