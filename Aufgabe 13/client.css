@@ -1,0 +1,13 @@
+fieldset {
+	width: 500px;
+	height: auto;
+}
+button {
+	background-color: black;
+	color: #87EBFF;
+    text-align: center;
+    display: inline-block;
+    font-size: 1em;
+    border-radius: 8em;
+    cursor: pointer;
+}
