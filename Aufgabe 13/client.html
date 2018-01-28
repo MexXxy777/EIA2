@@ -3,22 +3,34 @@
 <head>
 <title>DatabaseClient</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" href="client.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="client.css" type="text/css" media="screen" />
 <script src="client.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	<fieldset id="input">
 		<legend> Bitte Name, Vorname und Matrikelnummer eingeben </legend>
-		<input type="text" name="name" placeholder="Name" id="name" />
-		<input type="text" name="firstname" placeholder="Vorname" id="firstname" />
-		<input type="text" name="matrikel" placeholder="Matrikelnummer" id="matrikel" />
-		
+		<input type="text" name="name" placeholder="Name" id="name" /> <input
+			type="text" name="firstname" placeholder="Vorname" id="firstname" />
+		<input type="text" name="matrikel" placeholder="Matrikelnummer"
+			id="matrikel" />
+
 		<button type="button" id="insert">In Datenbank speichern</button>
 	</fieldset>
 	<fieldset id="output">
 		<legend>Alle eingegebenen Daten</legend>
 		<button type="button" id="refresh">Aktualisieren</button>
 		<textarea rows="30" cols="100"> </textarea>
+	</fieldset>
+	<fieldset id="findmatrikel">
+		<legend>Nach Matrikelnummer suchen</legend>
+		<input type="text" name="matrikelsearch" placeholder="Matrikelnummer"
+			id="matrikelsearch" />
+		<button type="button" id="find">Suchen</button>
+	</fieldset>
+	<fieldset id="findname">
+		<legend>Nach Name suchen</legend>
+		<input type="text" name="namesearch" placeholder="Name" id="namesearch" />
+		<button type="button" id="find">Suchen</button>
 	</fieldset>
 </body>
 </html>
