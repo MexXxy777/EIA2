@@ -73,11 +73,6 @@ var final;
         final.crc2.fillStyle = _color;
         final.crc2.fill();
     }
-    function handleMouseClickBuchstabe(_event) {
-        let clickDiv = _event.target;
-        clickDiv.style.color = "#87EBFF";
-        clickDiv.style.backgroundColor = "black";
-    }
     // Animation der V�gel und Wolken
     function animate() {
         console.log("Timeout");

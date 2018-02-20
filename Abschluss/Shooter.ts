@@ -99,12 +99,7 @@ namespace final {
         crc2.fillStyle = _color;
         crc2.fill();
     }
-    
-    function handleMouseClickBuchstabe(_event: MouseEvent): void {
-            let clickDiv: HTMLHeadingElement = <HTMLHeadingElement>_event.target;
-            clickDiv.style.color = "#87EBFF";
-            clickDiv.style.backgroundColor = "black";
-        }
+   
 
     // Animation der Vögel und Wolken
     function animate(): void {
