@@ -19,6 +19,9 @@ namespace FINAL {
 
         alert("Schiesse alle Raben innerhalb von 30 Sekunden ab! Pass auf die Ballons auf!");
         alert("Du darfst maximal 3 Ballons abschiessen. Pro Ballonkill erscheinen 2 neue!");
+        if (window.innerHeight > window.innerWidth) {
+            alert("Du zockst am Smartphone? Bitte im Querformat!");
+        }
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         canvas.addEventListener("click", shoot);
         crc2 = canvas.getContext("2d");
@@ -46,7 +49,7 @@ namespace FINAL {
             drawCloud(x, y, "white");
         }
 
-           time();
+        time();
 
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
@@ -139,7 +142,7 @@ namespace FINAL {
             if (_event.pageX >= ravenObject[i].x && _event.pageX <= ravenObject[i].x + 100 && ravenObject[i].y <= _event.pageY && _event.pageY <= ravenObject[i].y + 100 && ravenObject[i].color != "#39ff14") {
                 
                 ravenObject[i].color = "#39ff14";
-                hits += 1;//hit counter
+                hits += 1; //hit counter
              
             }
         }
