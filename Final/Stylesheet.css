@@ -31,15 +31,27 @@ canvas{
 	max-width: 80%;
 	margin-left: 2%;
 }
-
-
-div {
-	position: absolute;
+@media screen and (min-width: 570px) { 
+	
+	canvas {
+		width: 70%;
+	}
 }
 
-#zusammenfassung{
-	width: 30%;
-	line-height: 1.8em;
-	border: 1px solid grey;
-	float: left;
+
+
+@media screen and (min-width: 768px) { 
+	
+	canvas {
+		width: 60%;
+	}
+}
+
+
+
+@media screen and (min-width: 1024px) { 
+	
+	canvas {
+		width: 70%;
+	}
 }
