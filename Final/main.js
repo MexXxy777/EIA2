@@ -22,7 +22,7 @@ var FINAL;
         alert("Schiesse alle Raben innerhalb von 30 Sekunden ab! Pass auf die Ballons auf!");
         alert("Du darfst maximal 3 Ballons abschiessen. Pro Rabenkill erscheint ein neuer Ballon!");
         if (window.innerHeight > window.innerWidth) {
-            alert("Du zockst am Smartphone? Bitte im Querformat!");
+            alert("Du zockst am Smartphone? if (Wurstfinger = Querformat!)");
         }
         let canvas = document.getElementsByTagName("canvas")[0];
         canvas.addEventListener("click", shoot);
