@@ -149,16 +149,18 @@ namespace FINAL {
         for (let i: number = 0; i < ravenObject.length; i++) {
 
             if (_event.pageX >= ravenObject[i].x && _event.pageX <= ravenObject[i].x + 100 && ravenObject[i].y <= _event.pageY && _event.pageY <= ravenObject[i].y + 100 && ravenObject[i].color != "#39ff14") {
-
+                
                 ravenObject[i].color = "#39ff14";
                 hits += 1; //hit counter
+                let ravenKill: HTMLMediaElement = <HTMLMediaElement>document.getElementById("ravenkill");
+                ravenKill.play();
                 for (let i: number = 0; i < 1; i++) {
                     let r: BalloonObjects = new BalloonObjects(Math.random() * 700 + 15, Math.random() * 500 + 10); //1 neuer Ballon bei Rabenabschuss
                     balloonObject.push(r);
 
                 }
             }
-           
+
 
             for (let i: number = 0; i < balloonObject.length; i++) {
 
