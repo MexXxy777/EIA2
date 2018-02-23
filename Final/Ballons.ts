@@ -1,3 +1,10 @@
+/*
+Aufgabe: (Abschlussaufgabe EIA2)
+Name: (Maximilian Braun)
+Matrikel: (256301)
+Datum: (23.02.2018)
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 namespace FINAL {
 
     export class BalloonObjects extends MovingObjects {
@@ -8,16 +15,16 @@ namespace FINAL {
 
         constructor(_x: number, _y: number) {
             super(_x, _y);
-            this.dx = Math.random() * 3;
-            this.dy = Math.random() * 3;
+            this.dx = Math.random() * 3.5;  //geschwindigkeit und richtung x pro timeout
+            this.dy = Math.random() * 3.5;  //geschwindigkeit und richhtung y pro timeout
             this.color = "blue";
         }
 
         move(): void {
-            if (this.y > 540 || this.y < 50) {
+            if (this.y > 540 || this.y < 50) { //abprallen von der y kante
                 this.dy -= this.dy * 2;
             }
-            if (this.x > 1140 || this.x < 50) {
+            if (this.x > 760 || this.x < 50) { //abprallen von der x kante
                 this.dx -= this.dx * 2;
             }
             this.x += this.dx;
